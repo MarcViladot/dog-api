@@ -14,6 +14,8 @@ Dog.create([
 	{name:'Rufus', breed_id:'1'} #1
 ])
 
+#
+
 Photo.create([
 	{url:'https://res.cloudinary.com/dpsci3hpd/image/upload/v1527532391/1.jpg', dog_id:'1'}
 ])
