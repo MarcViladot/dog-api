@@ -21,6 +21,11 @@ module Api
 				render json: photo
 			end
 
+			def random
+				photo = Photo.order("RAND()").limit(params[:max])
+				render json: photo
+			end
+
 			private
 
 			def photo_params
