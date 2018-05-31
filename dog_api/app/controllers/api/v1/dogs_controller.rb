@@ -5,7 +5,7 @@ module Api
     		def index
     			dogs = Dog.all
     			render json: dogs.to_json(:include => [:breed, :photos])
-			end
+    		end
 			
 			def create
 				dog = Dog.new(dog_params)
@@ -21,6 +21,15 @@ module Api
 				render json: dog.to_json(:include => [:breed, :photos])
 			end
 
+			def random
+				dog = Dog.order('RAND()').limit(params[:max])
+				render json: dog.to_json(:include => [:breed, :photos])
+			end
+
+			def random_by_breed
+				dog = Dog.where('breed_id = ?', params[:breed_id]).order('RAND()').first
+				render json: dog.to_json(:include => [:breed, :photos])
+			end
 
 			private
 

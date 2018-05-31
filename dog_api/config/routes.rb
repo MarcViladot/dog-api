@@ -7,7 +7,19 @@ Rails.application.routes.draw do
     	resources :photos
 
 			#get 'url', to: 'breeds#showFav'
+
+			#Photos
 			get 'photos/random/:max', to: 'photos#random'
+
+			#Breeds
+			get 'breeds/random/:max', to: 'breeds#random'
+
+			#Dogs
+			get 'dogs/random-breed/:breed_id', to: 'dogs#random_by_breed'
+			get 'dogs/random/:max', to: 'dogs#random'
+			
+
+
     end
 end
 end

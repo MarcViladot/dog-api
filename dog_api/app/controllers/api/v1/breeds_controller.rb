@@ -21,6 +21,11 @@ module Api
 				render json: breed
 			end
 
+			def random
+				breed = Breed.order("RAND()").limit(params[:max])
+				render json: breed
+			end
+
     		private
 
     		def breed_params
